@@ -1,6 +1,6 @@
 # 1단계: Node.js 환경에서 애플리케이션 빌드
 # Node.js의 경량 Alpine 이미지를 사용하여 빌드 환경을 설정
-FROM node:18-alpine as builder 
+FROM node:20-alpine AS builder 
 
 # 작업 디렉토리를 /app으로 설정
 WORKDIR /app
