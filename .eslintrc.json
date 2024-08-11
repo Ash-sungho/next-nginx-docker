@@ -25,6 +25,7 @@
         "airbnb/hooks", // Airbnb의 React Hooks 스타일 가이드를 따릅니다.
         "next/core-web-vitals", // Next.js에서 권장하는 Core Web Vitals 관련 규칙을 따릅니다.
         "plugin:@typescript-eslint/recommended", // TypeScript ESLint 플러그인의 권장 규칙을 따릅니다.
+        "plugin:@typescript-eslint/parser", // TypeScript parser
         "plugin:prettier/recommended", // ESLint의 포맷팅 규칙을 Prettier로 사용하도록 설정합니다.
         "prettier" // Prettier와 충돌하는 ESLint 규칙을 비활성화하여 Prettier가 포맷팅을 전담하게 합니다.
     ],

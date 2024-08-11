@@ -4,13 +4,12 @@ interface OwnProps {
     something: string
 }
 
-const About: FC<OwnProps> = () => {
+const Create: FC<OwnProps> = () => {
     return (
         <div>
-            <h1>11</h1>
-            hello world
+            <h1>create TEST Page</h1>
         </div>
     )
 }
 
-export default About
+export default Create
