@@ -14,6 +14,7 @@ const Home: FC<OwnProps> = () => {
       console.log('hello World')
       console.log('pull Request Test')
       console.log('TEST TEST')
+      console.log('github token update TEST')
     }, 3000)
   }, [])
 
