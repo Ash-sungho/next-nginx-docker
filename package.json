@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "docker": "docker build -t nextapp:latest .",
+    "docker": "docker-compose up -d --build",
     "start": "next start",
     "lint": "next lint"
   },
