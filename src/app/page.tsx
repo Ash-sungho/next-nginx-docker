@@ -1,23 +1,29 @@
-'use client'
-
+// app/page.tsx
 import Image from 'next/image'
-import { FC, useEffect } from 'react'
+import instance from '@/_shared/AxiosInstance'
 import styles from './page.module.css'
 
-interface OwnProps {
-  face: string
-}
+const Home = async () => {
+  interface UserProfile {
+    full_name: string
+    id: string
+    is_new: boolean
+    is_private: boolean
+    is_verified: boolean
+    latest_reel_media: number
+    profile_pic_id: string
+    profile_pic_url: string
+    username: string
+  }
 
-const Home: FC<OwnProps> = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      console.log('hello World')
-      console.log('pull Request Test')
-      console.log('TEST TEST')
-      console.log('github token update TEST')
-      console.log('create branch Test')
-    }, 3000)
-  }, [])
+  interface Items {
+    items: UserProfile[]
+  }
+
+  // 서버에서 직접 데이터 가져오기
+  const result = await instance.get<Items>(
+    '/v1/likes?code_or_id_or_url=CxYQJO8xuC6',
+  )
 
   return (
     <main className={styles.main}>
@@ -62,7 +68,6 @@ const Home: FC<OwnProps> = () => {
           rel="noopener noreferrer"
         >
           <h2>
-            {/* Docs <span>-&gt;</span> */}
             NGINX <span>-&gt;</span>
           </h2>
           <p>Find in-depth information about Next.js features and API.</p>
@@ -75,7 +80,6 @@ const Home: FC<OwnProps> = () => {
           rel="noopener noreferrer"
         >
           <h2>
-            {/* Learn <span>-&gt;</span> */}
             NEXT <span>-&gt;</span>
           </h2>
           <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
@@ -106,6 +110,22 @@ const Home: FC<OwnProps> = () => {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+      </div>
+
+      <h1>프로필 이미지 목록</h1>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+        {result.data.items.map((item) => (
+          <div key={item.id} style={{ textAlign: 'center' }}>
+            <Image
+              src={item.profile_pic_url}
+              alt={item.full_name}
+              width={150}
+              height={150}
+              style={{ borderRadius: '50%' }}
+            />
+            <p>{item.full_name}</p>
+          </div>
+        ))}
       </div>
     </main>
   )
