@@ -38,7 +38,7 @@
     "no-useless-catch": "off", // 불필요한 catch 문을 사용할 수 없게 하는 규칙을 비활성화합니다.
 
     "prettier/prettier": ["error"], // Prettier에서 포맷팅 규칙을 어긴 경우 오류로 간주합니다.
-
+    "react/require-default-props": "off",
     // 함수 컴포넌트를 정의할 때, 화살표 함수와 함수 선언 방식만 허용합니다.
     "react/function-component-definition": [
       2,
